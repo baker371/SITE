@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<?php include ("db.php");?>
+
+<meta charset="utf-8">
+<title>save</title>
+</head>
+
+<body>
+
+
+
+<?php
+if(isset($_REQUEST['submit']))
+{
+$con=mysqli_connect("localhost","root","","test");
+		// Check connection
+		if (mysqli_connect_errno())
+		  {
+		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		  }
+	
+		
+		$a=$_POST['brand'];
+		$b=$_POST['generic'];
+		$c=$_POST['batch'];
+		$d=$_POST['arrival'];
+		$e=$_POST['expiry'];
+		$f=$_POST['selling'];
+		$g=$_POST['bought'];
+		$h=$_POST['profit'];
+		$i=$_POST['supplier'];
+		$j=$_POST['quantity'];
+
+		
+		$N = count($a);
+
+		for($i=0; $i < $N; $i++)
+		{
+		mysql_query("INSERT INTO products (`product_code`,`gen_name`,`product_name`,`date_arrival`,`expiry_date`,`price`,`o_price`,`profit`,`supplier`,`qty_sold`) VALUES ('$a[$i]','$b[$i]','$c[$i]','$d[$i]','$e[$i]','$f[$i]','$g[$i]','$h[$i]','$i[$i]','$j[$i]')");
+		}
+
+		header("location: index.php");
+}
+		mysql_close($con);
+
+
+	?>
+
+
+
+</body>
+</html> 
