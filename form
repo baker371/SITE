@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<?php include ("db.php");?>
+
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<table>					
+<tr>
+<td><input type="text" name="i" class="textbox" value="Brand Name"  style="background-color:Black; color:Lime;" readonly/></td>
+<td><input type="text" name="t" class="textbox" value="Generic Name"  style="background-color:Black; color:Lime;"  readonly/></td>
+<td><input type="text" name="tk" class="textbox" value="Batch No.""  style="background-color:Black; color:Lime;"  readonly/></td>
+<td><input type="text" name="i" class="textbox" value="Arrival Date" size="15" style="background-color:Black; color:Lime;" readonly/></td>
+<td><input type="text" name="t" class="textbox" value="Expiry Date"  size="15" style="background-color:Black; color:Lime;"  readonly/></td>
+<td><input type="text" name="tk" class="textbox" value="Selling Price"" size="10" style="background-color:Black; color:Lime;"  readonly/></td>
+<td><input type="text" name="i" class="textbox" value="Original Price" size="10" style="background-color:Black; color:Lime;" readonly/></td>
+<td><input type="text" name="t" class="textbox" value="Profit" size="10" style="background-color:Black; color:Lime;"  readonly/></td>
+<td><input type="text" name="tk" class="textbox" value="Supplier" size="10" style="background-color:Black; color:Lime;"  readonly/></td>
+<td><input type="text" name="tk" class="textbox" value="Quantity" size="6"  style="background-color:Black; color:Lime;"  readonly/></td>
+</tr>
+
+</table>
+<?php
+$books_query=mysql_query("select * from labour");
+$num_rows = mysql_num_rows($books_query);
+while($books_rows=mysql_fetch_array($books_query)){
+//echo  print_r($_post);
+?>
+<form id='students' method='post' name='form1' action='form.php'>
+<table>					
+<tr>
+<td><input type="text" name="brand[]" class="textbox" value="" /></td>
+<td><input type="text" name="generic[]" class="textbox" value="" /></td>
+<td><input type="text" name="batch[]" class="textbox" value="" /></td>
+<td><input type="text" name="arrival[]" class="textbox" size="15" value="" /></td>
+<td><input type="text" name="expiry[]" class="textbox" size="15" value="" /></td>
+<td><input type="text" name="selling[]" class="textbox"  size="10" value="" /></td>
+<td><input type="text" name="bought[]" class="textbox" size="10" value="" /></td>
+<td><input type="text" name="profit[]" class="textbox" size="10" value="" /></td>
+<td><input type="text" name="supplier[]" class="textbox" size="10" value="" /></td>
+<td><input type="text" name="quantity[]" class="textbox"  size="6" value="" /></td>
+</tr>
+
+
+
+
+
+</table>
+<?php }?>
+<tr>
+<td><button type="submit" name="submit" >Submit</button></td>
+
+</tr>
+
+</form>
+
+</body>
+</html> 
